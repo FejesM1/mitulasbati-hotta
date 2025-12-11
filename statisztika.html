@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élő Állás - Kalaplengető Verseny</title>
+    
+    <meta http-equiv="refresh" content="5"> 
+    
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="cimer">
+            <img src="traktor_cimer.png" alt="Traktoros Címer Búzakalásszal" class="logo"> 
+            <div class="header-content">
+                <h1>Szélesbálási Kalaplengető</h1>
+                <h2>🏆 AKTUÁLIS EREDMÉNYTÁBLA 🏆</h2>
+                <p>Szélesbálás, Arató utca 321. (Faluház bálterme)</p>
+            </div>
+            <img src="hurka.png" alt="Májas Hurka" class="logo">
+            <img src="soroskorsó.png" alt="Teli Söröskorsó" class="logo"> 
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">🏠 Főmenü</a></li> 
+            <li><a href="statisztika.html" class="active">📊 Eredménytábla</a></li> 
+        </ul>
+    </nav>
+
+    <main class="results-container" style="max-width: 98%;">
+        
+        <section id="statisztika"> 
+            
+            <div id="score-table-wrapper">
+                <div id="scroll-content">
+                    <table id="current-scores">
+                        <thead>
+                            <tr>
+                                <th style="width: 80px;">Hely.</th>
+                                <th>Versenyző Neve</th>
+                                <th>1. Lengetés</th>
+                                <th>2. Lengetés</th>
+                                <th>3. Lengetés</th>
+                                <th style="background-color: #d32f2f;">Legjobb</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="helyezes">1.</td><td>Kovács "Kalapos" János</td><td>8</td><td>9</td><td>7</td><td>9</td></tr>
+                            <tr><td class="helyezes">2.</td><td>Polgármester Úr</td><td>9</td><td>2</td><td>5</td><td>9</td></tr>
+                            <tr><td class="helyezes">3.</td><td>Nagy "Hurkás" Béla</td><td>5</td><td>8</td><td>8</td><td>8</td></tr>
+                            <tr><td class="helyezes">4.</td><td>Özv. Pártosné</td><td>6</td><td>8</td><td>4</td><td>8</td></tr>
+                            <tr><td class="helyezes">5.</td><td>Szabó Gizella (Gyesen)</td><td>7</td><td>6</td><td>2</td><td>7</td></tr>
+                            <tr><td class="helyezes">6.</td><td>Hantás Dezső</td><td>0</td><td>4</td><td>6</td><td>6</td></tr>
+                            <tr><td class="helyezes">7.</td><td>Csapos Pityu</td><td>5</td><td>5</td><td>5</td><td>5</td></tr>
+                            <tr><td class="helyezes">8.</td><td>Tóth Géza (Jegyző)</td><td>2</td><td>3</td><td>4</td><td>4</td></tr>
+                            <tr><td class="helyezes">9.</td><td>Kiss Elemér</td><td>1</td><td>1</td><td>3</td><td>3</td></tr>
+                            <tr><td class="helyezes">10.</td><td>Varga Jenő</td><td>0</td><td>0</td><td>2</td><td>2</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div style="display:flex; justify-content:space-between; margin-top:10px; font-weight:bold; color:#555;">
+                <span>Rendezés: Legjobb pontszám > Idő > ABC</span>
+                <span>Időmérés: Századmásodperc pontossággal</span>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="main-footer">
+        <p>A Szélesbálási Fedettpályás Kalaplengető Verseny hivatalos eredménykijelzője<br>
+        <span style="opacity: 0.6; font-size: 0.8em;">Powered by <strong>Dell Latitude E5570</strong> & Panasonic OLED</span></p>
+    </footer>
+
+    <script>
+        // --- AUTOMATIKUS GÖRGETÉS SCRIPT ---
+        function autoScroll() {
+            const wrapper = document.getElementById('score-table-wrapper');
+            const content = document.getElementById('scroll-content');
+            
+            if (content.scrollHeight <= wrapper.clientHeight) return;
+
+            let scrollAmount = 0;
+            const step = 1; 
+            const speed = 40; 
+            
+            function scrollStep() {
+                scrollAmount += step;
+                wrapper.scrollTop = scrollAmount;
+
+                if (scrollAmount >= (content.scrollHeight - wrapper.clientHeight)) {
+                    setTimeout(() => {
+                        scrollAmount = 0;
+                        wrapper.scrollTop = 0;
+                    }, 2000);
+                }
+            }
+
+            setInterval(scrollStep, speed);
+        }
+
+        window.onload = autoScroll;
+    </script>
+
+</body>
+</html>
